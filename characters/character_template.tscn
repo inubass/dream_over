@@ -1,3 +1,161 @@
 [gd_scene format=3 uid="uid://br51nsj8f3kvo"]
 
+[ext_resource type="Texture2D" uid="uid://crpg3ia8wyobp" path="res://assets/character_parts/ricky/player_ricky_head.png" id="1_668u0"]
+[ext_resource type="Texture2D" uid="uid://bl1euhy5pedaa" path="res://assets/character_parts/ricky/player_ricky_arm_back.png" id="2_cku61"]
+[ext_resource type="Texture2D" uid="uid://b5ujl7pqhghvc" path="res://assets/character_parts/ricky/player_ricky_torso_front.png" id="3_0b0ib"]
+[ext_resource type="Texture2D" uid="uid://dt57yd48b0r87" path="res://assets/character_parts/ricky/player_ricky_arm_front.png" id="4_aj7ht"]
+[ext_resource type="Texture2D" uid="uid://dgcnxkeai4dem" path="res://assets/character_parts/ricky/player_ricky_foot_back.png" id="5_umrc3"]
+[ext_resource type="Texture2D" uid="uid://doj4f1cvbl5eb" path="res://assets/character_parts/ricky/player_ricky_foot.png" id="6_mqaqd"]
+
+[sub_resource type="Animation" id="Animation_cku61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character_gravity_center/torso_0:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character_gravity_center/torso_0/front_arm_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("character_gravity_center/torso_0/back_arm_-1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("character_gravity_center/torso_0/head_1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_0b0ib"]
+resource_name = "idle"
+length = 0.93333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character_gravity_center/torso_0:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(1, 0), Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character_gravity_center/torso_0/front_arm_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333334, 0.13333334, 0.23333333, 0.62),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, -18), Vector2(-15, -18), Vector2(-13.566667, -16.300003), Vector2(-14, -19.960001)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("character_gravity_center/torso_0/back_arm_-1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -9), Vector2(16.4, -7.199997), Vector2(15, -12.999998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("character_gravity_center/torso_0/head_1:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -22), Vector2(-1, -21), Vector2(0.15, -20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aj7ht"]
+_data = {
+&"RESET": SubResource("Animation_cku61"),
+&"idle": SubResource("Animation_0b0ib")
+}
+
 [node name="character_template" type="Node2D" unique_id=1809031115]
+
+[node name="character_gravity_center" type="Node2D" parent="." unique_id=1111907256]
+position = Vector2(1, 68)
+
+[node name="torso_0" type="Sprite2D" parent="character_gravity_center" unique_id=816108938]
+position = Vector2(0, 3)
+texture = ExtResource("3_0b0ib")
+offset = Vector2(-1, -8)
+
+[node name="head_1" type="Sprite2D" parent="character_gravity_center/torso_0" unique_id=886156923]
+z_index = 1
+position = Vector2(1, -25)
+texture = ExtResource("1_668u0")
+offset = Vector2(0, -17)
+
+[node name="back_arm_-1" type="Sprite2D" parent="character_gravity_center/torso_0" unique_id=1101639510]
+z_index = -2
+position = Vector2(18, -9)
+texture = ExtResource("2_cku61")
+
+[node name="front_arm_2" type="Sprite2D" parent="character_gravity_center/torso_0" unique_id=1116292217]
+z_index = 3
+position = Vector2(-15, -18)
+texture = ExtResource("4_aj7ht")
+offset = Vector2(9, 11)
+
+[node name="front_foot_2" type="Sprite2D" parent="character_gravity_center" unique_id=896803312]
+z_index = 2
+position = Vector2(-7, 10)
+texture = ExtResource("6_mqaqd")
+offset = Vector2(5, 12)
+
+[node name="back_foot_-2" type="Sprite2D" parent="character_gravity_center" unique_id=2089087046]
+z_index = -2
+position = Vector2(3, 7)
+texture = ExtResource("5_umrc3")
+offset = Vector2(9, 13)
+
+[node name="main_animation_player" type="AnimationPlayer" parent="." unique_id=8916077]
+libraries/ = SubResource("AnimationLibrary_aj7ht")
+autoplay = &"idle"
