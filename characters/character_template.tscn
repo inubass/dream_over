@@ -9,12 +9,72 @@
 [ext_resource type="Texture2D" uid="uid://doj4f1cvbl5eb" path="res://assets/character_parts/ricky/player_ricky_foot.png" id="6_mqaqd"]
 [ext_resource type="Animation" uid="uid://du2k6ccv2sbkx" path="res://animation_resource/humanoid_RESET.res" id="8_mqaqd"]
 [ext_resource type="Animation" uid="uid://dy4f347bnm43o" path="res://animation_resource/humanoid_idle.res" id="9_kjc5u"]
+[ext_resource type="Animation" uid="uid://b46jqj030asc8" path="res://animation_resource/humanoid_punch.res" id="10_kjc5u"]
 [ext_resource type="Animation" uid="uid://d3ioxfsuppt47" path="res://animation_resource/humanoid_walk.res" id="10_mof5t"]
+
+[sub_resource type="Animation" id="Animation_mof5t"]
+resource_name = "jab"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character_gravity_center/torso_0/front_arm_2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11.264559, -13.748494)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character_gravity_center/torso_0/front_arm_2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.028271824, 0.08481547),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2984513, -0.7487463]
+}
+
+[sub_resource type="Animation" id="Animation_kjc5u"]
+resource_name = "jab_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character_gravity_center/torso_0/front_arm_2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.37350047]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character_gravity_center/torso_0/back_arm_-1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.032310657),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.15009831, -0.89709926]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aj7ht"]
 _data = {
 &"RESET": ExtResource("8_mqaqd"),
 &"idle": ExtResource("9_kjc5u"),
+&"jab": SubResource("Animation_mof5t"),
+&"jab_2": SubResource("Animation_kjc5u"),
+&"punch": ExtResource("10_kjc5u"),
 &"walk": ExtResource("10_mof5t")
 }
 
@@ -69,6 +129,6 @@ blend_times = [&"walk", &"idle", 0.5, &"walk", &"walk", 0.5]
 visible = false
 
 [node name="PlayerRickyHead" type="Sprite2D" parent="Node2Dparts" unique_id=727222943]
-position = Vector2(-85, 112)
+position = Vector2(1, 49.392746)
 texture = ExtResource("1_668u0")
 offset = Vector2(-1, -18)
