@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://ppnm0kdqjexw"]
 
+[ext_resource type="Script" uid="uid://chp1hft16foku" path="res://test_scenes/character_test.gd" id="1_7ako5"]
 [ext_resource type="PackedScene" uid="uid://br51nsj8f3kvo" path="res://characters/character_template.tscn" id="1_u8r4x"]
 
 [node name="character_test" type="Node2D" unique_id=348897152]
+script = ExtResource("1_7ako5")
 
 [node name="character_template" parent="." unique_id=1809031115 instance=ExtResource("1_u8r4x")]
 position = Vector2(135, 40)
+
+[node name="Label" type="Label" parent="." unique_id=2037652129]
+offset_right = 205.0
+offset_bottom = 23.0
